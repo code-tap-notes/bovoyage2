@@ -10,69 +10,19 @@ using System.Data.Entity;
 
 namespace BoVoyage.Core.Service
 {      
-    class ServiceVoyage
+    class ServiceClient
     {
-        public Voyage TrouverVoyage(int id)
+        public Client TrouverClient(int id)
         {
-            var voyageService= VoyageSQL;
-            return voyageServive.GetList()[id];
+            var service= new ClientSQL;
+            return service.GetList()[id];
         }
-
-        public void EnregistrerVoyage()
-         {
-        var voyage = new Voyage();
-        if (voyage.Id == 0)
+        public Clients Liste()
         {
-            CreerVoyage(voyage);
+            var service = ClientSQL;
+            return service.GetList();
         }
-        else
-        {
-            ModifierVoyage(voyage);
-        }
-        }
-        public void CreerVoyage(Voyage voyage)
-        {
-            using (var contexte = new Contexte())
-            {
-                contexte.Voyages.Add(voyage);
-
-                contexte.SaveChanges();
-            }
-        }
-        public List<Voyage> ListerVoyage()
-        {
-                using (var contexte = new Contexte())
-                {
-                    return contexte.Voyages.
-                        OrderBy(x => x.DateAller).
-
-                         ToList();
-                }
-              
-         }
-
-        public void ModifierVoyage(Voyage voyage)
-
-        {
-                using (var contexte = new Contexte())
-                {
-                    contexte.Voyages.Attach(voyage);
-                    contexte.Entry(voyage).State = EntityState.Modified;
-                    contexte.SaveChanges();
-
-                }
-        }
-
-        public void SupprimerVoyage(int id)
-        {
-                using (var contexte = new Contexte())
-                {
-                    var voyage = contexte.Voyages.Find(id);
-                    contexte.Entry(voyage).State = EntityState.Deleted;
-                    contexte.SaveChanges();
-                }
-        }
-     } 
+    } 
 }
 
 
