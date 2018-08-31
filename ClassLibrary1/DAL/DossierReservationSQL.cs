@@ -4,11 +4,12 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using BoVoyage.Core.Entity;
 
 namespace BoVoyage.Core.DAL
 {
-    public class DossierReservationSQL
+     class DossierReservationSQL
     {
         public List<DossierReservation> GetList()
         {
