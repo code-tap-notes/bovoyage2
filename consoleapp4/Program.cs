@@ -14,6 +14,8 @@ namespace Bovoyage.AppConsole
     class Program
     {
         static ServiceClient serviceClient = new ServiceClient();
+        static ServiceVoyage serviceVoyage= new ServiceClient();
+        static ServiceClient serviceClient = new ServiceClient();
 
         static void Main(string[] args)
         {
@@ -156,7 +158,7 @@ namespace Bovoyage.AppConsole
             destination.Region = OutilsConsole.SaisirChaineObligatoire("Region: ");
             destination.Description = OutilsConsole.SaisirChaineObligatoire("Description: ");
 
-            service.CreerVoyage(voyage);
+            serviceVoyage.CreerVoyage(voyage);
             OutilsConsole.AfficherMessage("Contact ajouté !", ConsoleColor.Green);
         }
 
@@ -173,7 +175,6 @@ namespace Bovoyage.AppConsole
             clients = Getlist();
             List<Personne> personne = new List<Personne>;
             personnes = Getlist();
-
             voyage.Id = OutilsConsole.SaisirEntierObligatoire("ID voyage ");
             client.Id = OutilsConsole.SaisirEntierObligatoire("ID client ");
             personne.Id = OutilsConsole.SaisirEntierObligatoire("ID personne ");
