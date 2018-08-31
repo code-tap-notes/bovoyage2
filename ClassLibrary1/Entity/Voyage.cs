@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoVoyage.Core.Entity
 {
-    class Voyage
+    public class Voyage
     {
         public int Id { get; set; }
         public DateTime DateAller { get; set; }

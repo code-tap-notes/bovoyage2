@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoVoyage.Core.Entity
 {
-    class ParticipantReservation
+    public class ParticipantReservation
     {
         public int Id { get; set; }
         //Pour FK  relation 9..*

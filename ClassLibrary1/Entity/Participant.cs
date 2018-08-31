@@ -6,7 +6,7 @@ using System.Threading.Tasks;
  
 namespace BoVoyage.Core.Entity
 {
-        class Participant:Personne
+       public class Participant:Personne
         {
             public int NumeroUnique { get; set; }
 

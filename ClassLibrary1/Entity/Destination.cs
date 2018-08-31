@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoVoyage.Core.Entity
 {
-        class Destination
+        public class Destination
         {
             public int Id { get; set; }
             public string Continent { get; set; }

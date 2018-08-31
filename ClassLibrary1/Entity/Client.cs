@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoVoyage.Core.Entity
 {
-    class Client: Personne 
+    public class Client: Personne 
     {       
         public string Email { get; set; }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoVoyage.Core.Entity
 {
-        class DossierReservation
+       public class DossierReservation
         {
             public int Id { get; set; }
             public EtatDossierReservation EtatDossier { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoVoyage.Core.Entity
 {
-    class AgenceVoyage
+    public class AgenceVoyage
     {
         public int Id { get; set; }
         public string Nom { get; set; }

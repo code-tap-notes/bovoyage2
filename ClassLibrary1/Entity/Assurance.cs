@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoVoyage.Core.Entity
 {
-    class Assurance
+    public class Assurance
     {
        
             public int Id { get; set; }
