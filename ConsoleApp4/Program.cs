@@ -170,7 +170,7 @@ namespace Bovoyage.AppConsole
 
             var reservation = new Reservation();
             List<Voyage> voyages = new List<Voyage>;
-            Voyages = GetList();
+            voyages = GetList();
             List<Client> clients = new List<Client>;
             clients = Getlist();
             List<Personne> personne = new List<Personne>;
@@ -195,7 +195,7 @@ namespace Bovoyage.AppConsole
             for (int i = 0; i < listeClients.Count; i++)
             {
                 Client client = listeClients[i];
-                Console.WriteLine((i + 1) + ". " + client.GetNom());
+                Console.WriteLine((i + 1) + ". " + client.getNom());
             }
 
             var numeroClient = Console.ReadLine();
@@ -232,7 +232,7 @@ namespace Bovoyage.AppConsole
             for (int i = 0; i < listeReservations.Count; i++)
             {
                 Reservation reservation = listeReservations[i];
-                Console.WriteLine((i + 1) + ". " + reservation.GetNom());
+                Console.WriteLine((i + 1) + ". " + reservation.getNom());
             }
 
             var numeroReservation = Console.ReadLine();
@@ -260,8 +260,8 @@ namespace Bovoyage.AppConsole
                 switch (modifOption)
                 {
                     case "1":
-                        client.nom = OutilsConsole.SaisirChaineObligatoire("Nom:");
-                        Client.nom;
+                        var nom = OutilsConsole.SaisirChaineObligatoire("Nom:");
+                        client.setNom(nom);
                         break;
                     case "2":
                         var prenom = OutilsConsole.SaisirChaineObligatoire("Prenom:");
@@ -269,7 +269,7 @@ namespace Bovoyage.AppConsole
                         break;
                     case "3":
                         var email = Console.ReadLine();
-                        client.setEmail(email);
+                        client.setemail(email);
                         break;
                     case "4":
                         var tel = Console.ReadLine();
@@ -292,10 +292,10 @@ namespace Bovoyage.AppConsole
         static void OptionVoyage(Voyage voyage)
         {
             OutilsConsole.AfficherChamp(voyage.Destination, 20);
-            OutilsConsole.AfficherChamp(Voyage.PlacesDisponible, 2);
-            OutilsConsole.AfficherChamp(Voyage.DateAller.ToString(), 10);
-            OutilsConsole.AfficherChamp(Voyage.DateRetour.ToString(), 10);
-            OutilsConsole.AfficherChamp(Voyage.setPrixParPersonne.ToString(), 4);
+            OutilsConsole.AfficherChamp(voyage.PlacesDisponible, 2);
+            OutilsConsole.AfficherChamp(voyage.DateAller.ToString(), 10);
+            OutilsConsole.AfficherChamp(voyage.DateRetour.ToString(), 10);
+            OutilsConsole.AfficherChamp(voyage.setPrixParPersonne.ToString(), 4);
             //OutilsConsole.AfficherChamp(voyage.PrixParPersonne, 10);
             Console.WriteLine();
             Console.WriteLine("1. Modifier");
