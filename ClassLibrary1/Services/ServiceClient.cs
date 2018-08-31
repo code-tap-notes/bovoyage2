@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 using BoVoyage.Core.Entity;
 using BoVoyage.Core.DAL;
 
+
 namespace BoVoyage.Core.Services
 {
-
-    public class ServiceClient
-
+    public class ClientService
     {
-     
-        public void ServicerAjouter(Client Client)
+        public Client Ajouter(Client client)
         {
-            ClientSQL ServiveClient = new ClientSQL;
-            ServiceClient.Ajouter(Client);
-          
+            var cli = new ClientSQL();
+            cli.Ajouter(client);
+            return client;
         }
 
     }

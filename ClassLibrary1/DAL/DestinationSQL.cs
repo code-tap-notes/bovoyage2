@@ -25,7 +25,7 @@ namespace BoVoyage.Core.DAL
                 contexte.DossierReservations.Add(DossierReservation);
                 contexte.SaveChanges();
             }
-            return DossierReservation
+            return DossierReservation;
         }
     }
 }

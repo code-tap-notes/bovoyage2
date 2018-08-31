@@ -51,7 +51,6 @@
     <Compile Include="DAL\ClientSQL.cs" />
     <Compile Include="DAL\Contexte.cs" />
     <Compile Include="DAL\DestinationSQL.cs" />
-    <Compile Include="DAL\DossierReservationDonnees.cs" />
     <Compile Include="DAL\DossierReservationSQL.cs" />
     <Compile Include="DAL\ParticipantDonnees.cs" />
     <Compile Include="DAL\ParticipantSQL.cs" />
