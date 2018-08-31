@@ -11,8 +11,7 @@ namespace BoVoyage.Core.Entity
             public int Id { get; set; }
             public EtatDossierReservation EtatDossier { get; set; }
             public EtatDossierReservation EtatAnnulation { get; set; }
-        public string NumeroCarteBancaire { get; set; }
-           
+            public string NumeroCarteBancaire { get; set; }
         //FK 
             public virtual AgenceVoyage agenceVoyage { get; set; }
             public int IdVoyage { get; set; }
@@ -21,9 +20,8 @@ namespace BoVoyage.Core.Entity
             {
                 return 0d;
             }    
-    }
-
+        }
         enum EtatDossierReservation { enAttente, enCours, refuse, accepte }
-        enum RaisonAnnulationDossier { parClient,placeInsuffisantes}
-    
+        enum RaisonAnnulationDossier { parClient, placeInsuffisantes }
+
 }

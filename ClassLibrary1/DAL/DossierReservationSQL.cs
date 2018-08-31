@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,20 +41,20 @@ namespace BoVoyage.Core.DAL
             using (var contexte = new Contexte())
             {
                 return contexte.DossierReservations.
-                    OrderBy(x => x.DateAller).
+                    OrderBy(x => x.Id).
 
                      ToList();
             }
 
         }
 
-        public void ModifierDossierReservation(DossierReservation Client)
+        public void ModifierDossier(DossierReservation dossierReservation)
 
         {
             using (var contexte = new Contexte())
             {
-                contexte.DossierReservations.Attach(DossierReservation);
-                contexte.Entry(DossierReservation).State = EntityState.Modified;
+                contexte.DossierReservations.Attach(dossierReservation);
+                contexte.Entry(dossierReservation).State = EntityState.Modified;
                 contexte.SaveChanges();
 
             }

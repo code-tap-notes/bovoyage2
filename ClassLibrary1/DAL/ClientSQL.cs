@@ -43,7 +43,7 @@ namespace BoVoyage.Core.DAL
             using (var contexte = new Contexte())
             {
                 return contexte.Clients.
-                    OrderBy(x => x.DateAller).
+                    OrderBy(x => x.Nom).
 
                      ToList();
             }

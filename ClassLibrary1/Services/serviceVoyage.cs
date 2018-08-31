@@ -10,16 +10,16 @@ using System.Data.Entity;
 
 namespace BoVoyage.Core.Service
 {      
-    class ServiceClient
+    class ServiceVoyage
     {
-        public Client TrouverClient(int id)
+        public Voyage getVoyage(int id)
         {
-            var service= new ClientSQL;
+            var service= new VoyageSQL();
             return service.GetList()[id];
         }
-        public Clients Liste()
+        public List<Client> Liste()
         {
-            var service = ClientSQL;
+            var service = new ClientSQL();
             return service.GetList();
         }
     } 

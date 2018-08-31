@@ -19,6 +19,9 @@ namespace BoVoyage.Core.DAL
                 return contexte.Voyages.ToList();
             }
         }
+       
+
+
         public Voyage Ajouter(Voyage Voyage)
         {
             using (var contexte = new Contexte())
@@ -49,13 +52,13 @@ namespace BoVoyage.Core.DAL
 
         }
 
-        public void ModifierVoyage(Voyage Client)
+        public void ModifierVoyage(Voyage voyage)
 
         {
             using (var contexte = new Contexte())
             {
-                contexte.Voyages.Attach(Voyage);
-                contexte.Entry(Voyage).State = EntityState.Modified;
+                contexte.Voyages.Attach(voyage);
+                contexte.Entry(voyage).State = EntityState.Modified;
                 contexte.SaveChanges();
 
             }

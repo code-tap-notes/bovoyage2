@@ -9,7 +9,7 @@ using BoVoyage.Core.DAL;
 
 namespace BoVoyage.Core.Services
 {
-    public class ClientService
+    public class ServiceClient
     {
         public Client Ajouter(Client client)
         {
@@ -17,6 +17,22 @@ namespace BoVoyage.Core.Services
             cli.Ajouter(client);
             return client;
         }
+        public void CreerClient(Client client)
+        {
+            var cli = new ClientSQL();
+            cli.CreerClient(client);        
+        }
 
+
+        public void SupprimerClient(int id)
+        {
+            var cli = new ClientSQL();
+            cli.SupprimerClient(id);
+        }
+        public void ModifierClient(Client client)
+        {
+            var cli = new ClientSQL();
+            cli.ModifierClient(client);
+        }
     }
 }

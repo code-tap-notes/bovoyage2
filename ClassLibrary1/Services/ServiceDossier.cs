@@ -24,5 +24,8 @@ namespace BoVoyage.Core.Services
 
         public virtual Participant Participants { get; set; }
 
+
     }
+    enum EtatDossierReservation { enAttente, enCours, refuse, accepte }
+    enum RaisonAnnulationDossier { parClient, placeInsuffisantes }
 }

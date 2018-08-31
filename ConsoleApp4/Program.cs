@@ -1,13 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using BoVoyage.AppConsole;
+using BoVoyage.Core;
+using System.IO;
+using BoVoyage.Core.Services;
+using BoVoyage.Core.Entity;
+using BoVoyage.Core.DAL;
+
+
 
 namespace Bovoyage.AppConsole
 {
     class Program
     {
-        static IServiceClient serviceClient = new ServiceClient();
+        static ServiceClient serviceClient = new ServiceClient();
 
         static void Main(string[] args)
         {
@@ -39,10 +45,6 @@ namespace Bovoyage.AppConsole
         }
 
 
-
-
-
-
         static bool GererMenuClient()
         {
             var choix = AfficherMenuClient();
@@ -65,9 +67,6 @@ namespace Bovoyage.AppConsole
             }
 
         }
-
-
-
         static string AfficherMenu()
         {
             Console.Clear();
@@ -79,10 +78,6 @@ namespace Bovoyage.AppConsole
             Console.Write("\nVotre choix: ");
             return Console.ReadLine();
         }
-
-
-
-
 
 
         static string AfficherMenuClient()
@@ -121,30 +116,22 @@ namespace Bovoyage.AppConsole
             return Console.ReadLine();
         }
 
-
-
-
         static void CreerClient()
         {
             Console.Clear();
             Console.WriteLine("AJOUT D'UN CLIENT\n");
 
             var client = new Client();
-
+            
             Console.WriteLine("Civilité:");
-            personne.Email = Console.ReadLine();
-            personne.Nom = OutilsConsole.SaisirChaineObligatoire("Nom:");
-            personne.Prenom = OutilsConsole.SaisirChaineObligatoire("Prénom:");
 
-            Console.WriteLine("Email:");
-            personne.Email = Console.ReadLine();
+            client.Email = OutilsConsole.SaisirChaineObligatoire("Email:");
+            client.Nom = OutilsConsole.SaisirChaineObligatoire("Nom:");
+            client.Prenom = OutilsConsole.SaisirChaineObligatoire("Prénom:");
+            client.Telephone = OutilsConsole.SaisirChaineObligatoire("Prénom:");
+            client.DateNaissance = OutilsConsole.SaisirDate("Date de naissance:");
 
-            Console.WriteLine("Téléphone:");
-            personne.Telephone = Console.ReadLine();
-
-            personne.DateNaissance = OutilsConsole.SaisirDate("Date de naissance:");
-
-            service.CreerClient(client);
+            serviceClient.CreerClient(client);
 
             OutilsConsole.AfficherMessage("Contact ajouté !", ConsoleColor.Green);
         }
@@ -156,14 +143,16 @@ namespace Bovoyage.AppConsole
             Console.WriteLine("AJOUT D'UN VOYAGE\n");
 
             var voyage = new Voyage();
+            var destination = new Destination();
 
             voyage.DateAller = OutilsConsole.SaisirDateObligatoire("Date d'aller: ");
             voyage.DateRetour = OutilsConsole.SaisirDateObligatoire("Date de retour: ");
-            voyage.PlacesDisponibles = OutilsConsole.SaisirEntierObligatoire("Places Disponible: ");
+            voyage.PlacesDisponible = OutilsConsole.SaisirEntierObligatoire("Places Disponible: ");
             voyage.PrixParPersonne = OutilsConsole.SaisirEntierObligatoire("Prix par personne: ");
+            
             destination.Id = OutilsConsole.SaisirEntierObligatoire("Id: ");
             destination.Continent = OutilsConsole.SaisirChaineObligatoire("Continent: ");
-            destination.Pays = OutilsConsole.SaisirChaineObligatoire("Pays: ");
+            destination.Pay = OutilsConsole.SaisirChaineObligatoire("Pays: ");
             destination.Region = OutilsConsole.SaisirChaineObligatoire("Region: ");
             destination.Description = OutilsConsole.SaisirChaineObligatoire("Description: ");
 
@@ -213,11 +202,8 @@ namespace Bovoyage.AppConsole
             OptionClient(listeClients[numeroClient]);
         }
 
-
-
         static void ListerVoyages()
         {
-
             Console.Clear();
             Console.WriteLine("LISTE DES VOYAGES\n");
 
@@ -233,8 +219,6 @@ namespace Bovoyage.AppConsole
 
             OptionVoyage(listeVoyages[numeroVoyage]);
         }
-
-
 
         static void ListerReservations()
         {
@@ -254,11 +238,6 @@ namespace Bovoyage.AppConsole
 
             OptionReservation(listeReservations[numeroReservation]);
         }
-
-
-
-
-
 
         static void OptionClient(Client client)
         {
