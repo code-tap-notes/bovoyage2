@@ -6,16 +6,17 @@ using System.IO;
 using BoVoyage.Core.Services;
 using BoVoyage.Core.Entity;
 using BoVoyage.Core.DAL;
-
-
+using BoVoyage.Core.Service;
 
 namespace Bovoyage.AppConsole
 {
     class Program
     {
         static ServiceClient serviceClient = new ServiceClient();
-        static ServiceVoyage serviceVoyage= new ServiceClient();
-        static ServiceClient serviceClient = new ServiceClient();
+        static ServiceVoyage serviceVoyage = new ServiceVoyage();
+        static ServiceDossier serviceDossier = new ServiceDossier();
+        static ServicePersonne servicePersonne = new ServicePersonne();
+        static ServiceParticipant serviceParticipant = new ServiceParticipant();
 
         static void Main(string[] args)
         {
@@ -124,16 +125,16 @@ namespace Bovoyage.AppConsole
             Console.WriteLine("AJOUT D'UN CLIENT\n");
 
             var client = new Client();
-            
+
             Console.WriteLine("Civilité:");
 
             client.Email = OutilsConsole.SaisirChaineObligatoire("Email:");
             client.Nom = OutilsConsole.SaisirChaineObligatoire("Nom:");
             client.Prenom = OutilsConsole.SaisirChaineObligatoire("Prénom:");
             client.Telephone = OutilsConsole.SaisirChaineObligatoire("Prénom:");
-            client.DateNaissance = OutilsConsole.SaisirDate("Date de naissance:");
+            client.DateNaissance = OutilsConsole.SaisirDateObligatoire("Date de naissance:");
 
-            serviceClient.CreerClient(client);
+            serviceClient.Ajouter(client);
 
             OutilsConsole.AfficherMessage("Contact ajouté !", ConsoleColor.Green);
         }
@@ -151,7 +152,7 @@ namespace Bovoyage.AppConsole
             voyage.DateRetour = OutilsConsole.SaisirDateObligatoire("Date de retour: ");
             voyage.PlacesDisponible = OutilsConsole.SaisirEntierObligatoire("Places Disponible: ");
             voyage.PrixParPersonne = OutilsConsole.SaisirEntierObligatoire("Prix par personne: ");
-            
+
             destination.Id = OutilsConsole.SaisirEntierObligatoire("Id: ");
             destination.Continent = OutilsConsole.SaisirChaineObligatoire("Continent: ");
             destination.Pay = OutilsConsole.SaisirChaineObligatoire("Pays: ");
@@ -169,18 +170,21 @@ namespace Bovoyage.AppConsole
             Console.WriteLine("AJOUT D'UNE RESERVATION\n");
 
             var reservation = new Reservation();
-            List<Voyage> voyages = new List<Voyage>;
-            voyages = GetList();
-            List<Client> clients = new List<Client>;
-            clients = Getlist();
-            List<Personne> personne = new List<Personne>;
-            personnes = Getlist();
-            voyage.Id = OutilsConsole.SaisirEntierObligatoire("ID voyage ");
-            client.Id = OutilsConsole.SaisirEntierObligatoire("ID client ");
-            personne.Id = OutilsConsole.SaisirEntierObligatoire("ID personne ");
-            service.CreerDossierReservation(reservation);
+            List<Voyage> voyages = new List<Voyage>();
+            List<Personne> personnes = new List<Personne>();
+            voyages = serviceVoyage.GetList();
+            List<Client> clients = new List<Client>();
+            clients = serviceClient.GetList();
+
+            personnes = servicePersonne.GetList();
+
+            serviceVoyage.GetVoyage(OutilsConsole.SaisirEntierObligatoire("ID voyage "));
+            serviceClient.GetClient(OutilsConsole.SaisirEntierObligatoire("ID client "));
+            serviceParticipant.GetParticipant(OutilsConsole.SaisirEntierObligatoire("ID participant "));
+            serviceDossier.CreerDossierReservation(reservation);
             OutilsConsole.AfficherMessage("Contact ajouté !", ConsoleColor.Green);
         }
+
 
 
 

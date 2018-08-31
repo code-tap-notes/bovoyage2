@@ -17,12 +17,23 @@ namespace BoVoyage.Core.Services
             cli.Ajouter(client);
             return client;
         }
+
+        public Client GetClient(int id)
+        {
+            var service = new ClientSQL();
+            return service.GetList()[id];
+        }
+
         public void CreerClient(Client client)
         {
             var cli = new ClientSQL();
             cli.CreerClient(client);        
         }
-
+        public List<Client> GetList()
+        {
+            var serviceClient = new ClientSQL();
+            return serviceClient.GetList();
+        }
 
         public void SupprimerClient(int id)
         {

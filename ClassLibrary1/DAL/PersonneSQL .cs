@@ -1,47 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BoVoyage.Core.Entity;
+using System.IO;
+using System.Data.Entity;
 
 namespace BoVoyage.Core.DAL
 {
-    class ParticipantSQL
+    class PersonneSQL
     {
 
-        public List<Participant> GetList()
+        public List<Personne> GetList()
         {
 
             using (var contexte = new Contexte())
             {
-                return contexte.Participant.ToList();
+                return contexte.Personne.ToList();
             }
         }
-        public Participant Ajouter(Participant participant)
+        public Personne Ajouter(Personne Personne)
         {
             using (var contexte = new Contexte())
             {
-                contexte.Participant.Add(participant);
+                contexte.Personne.Add(Personne);
                 contexte.SaveChanges();
             }
-            return participant;
+            return Personne;
         }
-        public void CreerParticipant(Participant participant)
+        public void CreerPersonne(Personne Personne)
         {
             using (var contexte = new Contexte())
             {
-                contexte.Participant.Add(participant);
+                contexte.Personne.Add(Personne);
 
                 contexte.SaveChanges();
             }
         }
-        public List<Participant> ListerParticipant()
+        public List<Personne> ListerPersonne()
         {
             using (var contexte = new Contexte())
             {
-                return contexte.Participant.
+                return contexte.Personne.
                     OrderBy(x => x.Nom).
 
                      ToList();
@@ -49,24 +50,24 @@ namespace BoVoyage.Core.DAL
 
         }
 
-        public void ModifierParticipant(Participant Participant)
+        public void ModifierPersonne(Personne Personne)
 
         {
             using (var contexte = new Contexte())
             {
-                contexte.Participant.Attach(Participant);
-                contexte.Entry(Participant).State = EntityState.Modified;
+                contexte.Personne.Attach(Personne);
+                contexte.Entry(Personne).State = EntityState.Modified;
                 contexte.SaveChanges();
 
             }
         }
 
-        public void SupprimerParticipant(int id)
+        public void SupprimerPersonne(int id)
         {
             using (var contexte = new Contexte())
             {
-                var Participant = contexte.Participant.Find(id);
-                contexte.Entry(Participant).State = EntityState.Deleted;
+                var Personne = contexte.Personne.Find(id);
+                contexte.Entry(Personne).State = EntityState.Deleted;
                 contexte.SaveChanges();
             }
         }

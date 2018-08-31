@@ -17,7 +17,8 @@ namespace BoVoyage.Core.DAL
         public DbSet<Client> Clients { get; set; }
         public DbSet<DossierReservation> DossierReservations { get; set; }
         public DbSet<ParticipantReservation> ParticipantReservation { get; set; }
-        public DbSet<Participant> Participants { get; set; }
+        public DbSet<Participant> Participant { get; set; }
+        public DbSet<Personne> Personne { get; set; }
         public DbSet<Assurance> Assurances { get; set; }
     }
 }

@@ -9,7 +9,7 @@ using System.Data.Entity;
 
 namespace BoVoyage.Core.DAL
 {
-    class VoyageSQL
+    public class VoyageSQL
     {
         public List<Voyage> GetList()
         {

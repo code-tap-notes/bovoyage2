@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\PersonneSQL .cs" />
     <Compile Include="DAL\ClientSQL.cs" />
     <Compile Include="DAL\Contexte.cs" />
     <Compile Include="DAL\DestinationSQL.cs" />
@@ -68,6 +69,8 @@
     <Compile Include="Entity\Participant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entity\Voyage.cs" />
+    <Compile Include="Services\ServiceParticipant.cs" />
+    <Compile Include="Services\ServicePersonne.cs" />
     <Compile Include="Services\ServiceClient.cs" />
     <Compile Include="Services\ServiceDossier.cs" />
     <Compile Include="Services\serviceVoyage.cs" />
