@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoVoyage.AppConsole", "Cons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoVoyage.Core", "ClassLibrary1\BoVoyage.Core.csproj", "{96AD4131-D64C-4B1D-B91A-736180346788}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoVoyage.Framework.Exemple", "H:\Projet BoVoyage2\BoVoyage.Framework.Exemple\BoVoyage.Framework.Exemple.csproj", "{A2385A68-D577-45DC-A763-E5E3CB6D13AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{96AD4131-D64C-4B1D-B91A-736180346788}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96AD4131-D64C-4B1D-B91A-736180346788}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96AD4131-D64C-4B1D-B91A-736180346788}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2385A68-D577-45DC-A763-E5E3CB6D13AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2385A68-D577-45DC-A763-E5E3CB6D13AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2385A68-D577-45DC-A763-E5E3CB6D13AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2385A68-D577-45DC-A763-E5E3CB6D13AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

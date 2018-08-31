@@ -29,7 +29,18 @@ namespace BoVoyage.Core.Service
             var service = new VoyageSQL();
             service.CreerVoyage(voyage);
         }
-       
+
+        public void ModifierVoyage(Voyage voyage)
+        {
+            var cli = new VoyageSQL();
+            cli.ModifierVoyage(voyage);
+        }
+
+        public void SupprimerVoyage (int id)
+        {
+            var cli = new VoyageSQL();
+            cli.SupprimerVoyage(id);
+        }
     } 
 }
 
